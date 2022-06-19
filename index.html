@@ -29,18 +29,18 @@
                 formatUpdated: '{MM}/{DD} {HH}:{mm}',
                 routerMode: 'history',
                 onlyCover: true,
-            search: {
+                search: {
                         depth: 3,
                         paths: 'auto',
                         placeholder: 'Type to search',
                         noData: 'No Results!',
-            },
+                },
                 pagination: {
-            previousText: '上一章节',
-            nextText: '下一章节',
-            crossChapter: true,
-            crossChapterText: true,
-        },
+                previousText: '上一章节',
+                nextText: '下一章节',
+                crossChapter: true,
+                crossChapterText: true,
+                },
                 count:{
                                 countable: true,
                                 position: 'top',
@@ -61,18 +61,18 @@
                         whereToPlace: "top",  // "top" or "bottom", default to "bottom"
                 },
                 markdown: {
-        renderer: {
-            code: function(code, lang) {
-                if (lang === "mermaid") {
-                    return (
-                        '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
-                    );
+                    renderer: {
+                        code: function(code, lang) {
+                            if (lang === "mermaid") {
+                                return (
+                                    '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+                                );
+                            }
+                            return this.origin.code.apply(this, arguments);
+                        }
+                    }
                 }
-                return this.origin.code.apply(this, arguments);
-            }
-        }
     }
-      }
   </script>
   <script src="assets/js/docsify.min.js"></script>
   <script src="assets/js/search.min.js"></script>
