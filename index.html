@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="assets/css/vue.css" />
+  <link rel="stylesheet" href="assets/css/mermaid.min.css">
+  <script src="assets/js/mermaid.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+        var num = 0;
+        mermaid.initialize({ startOnLoad: false });
+  </script>
+  <script>
+    window.$docsify = {
+                repo: '',
+                maxLevel: 4,
+                loadSidebar: true,
+                subMaxLevel: 2,
+                auto2top: true,
+                coverpage: true,
+                logo: '',
+                name: '',
+                nameLink: '',
+                autoHeader: true,
+                formatUpdated: '{MM}/{DD} {HH}:{mm}',
+                routerMode: 'history',
+                onlyCover: true,
+            search: {
+                        depth: 3,
+                        paths: 'auto',
+                        placeholder: 'Type to search',
+                        noData: 'No Results!',
+            },
+                pagination: {
+            previousText: '上一章节',
+            nextText: '下一章节',
+            crossChapter: true,
+            crossChapterText: true,
+        },
+                count:{
+                                countable: true,
+                                position: 'top',
+                                margin: '10px',
+                                float: 'right',
+                                fontsize:'0.9em',
+                                color:'rgb(90,90,90)',
+                                language:'chinese',
+                                localization: {
+                                words: "",
+                                minute: ""
+                                },
+                                isExpected: true
+                },
+                timeUpdater: {
+                        text: ">最后更新时间: {docsify-updated}",
+                        formatUpdated: "{YYYY}/{MM}/{DD} {HH}:{mm}",
+                        whereToPlace: "top",  // "top" or "bottom", default to "bottom"
+                },
+                markdown: {
+        renderer: {
+            code: function(code, lang) {
+                if (lang === "mermaid") {
+                    return (
+                        '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+                    );
+                }
+                return this.origin.code.apply(this, arguments);
+            }
+        }
+    }
+      }
+  </script>
+  <script src="assets/js/docsify.min.js"></script>
+  <script src="assets/js/search.min.js"></script>
+  <script src="assets/js/docsify-copy-code.min.js"></script>
+  <script src="assets/js/docsify-pagination.min.js"></script>
+  <script src="assets/js/countable.min.js"></script>
+  <script src="assets/js/time-updater.min.js"></script>
+  <script src="assets/js/prism-bash.min.js"></script>
+  <script src="assets/js/prism-markdown.min.js"></script>
+  <script src="assets/js/prism-json.min.js"></script>
+  <script src="assets/js/prism-python.js"></script>
+  <script src="assets/js/prism-vim.min.js"></script>
+  <script src="assets/js/prism-docker.min.js"></script>
+  <script src="assets/js/prism-git.min.js"></script>
+  <script src="assets/js/prism-powershell.min.js"></script>
+  <script src="assets/js/prism-yaml.min.js"></script>
+</body>
+</html>

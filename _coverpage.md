@@ -1,0 +1,2 @@
+# Docsify-Local
+> For LAN
